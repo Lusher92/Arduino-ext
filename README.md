@@ -35,3 +35,23 @@ npm install
 npm link scratch-vm
 npm start
 ```
+
+### le link of the [local servor](http://localhost:8601) :
+
+http://localhost:8601
+
+
+## Comands for Linux :
+- Open the venv : <br/>
+`source .venv/bin/activate` <br/>
+`s3a` <br/>
+
+
+- If problems of permissions :<br/>
+https://forum.ubuntu-fr.org/viewtopic.php?id=2037251
+
+<br/>
+
+## Comands for Windows :
+- [long path](https://www.it-connect.fr/windows-10-comment-activer-la-gestion-des-chemins-trop-long/)
+
