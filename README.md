@@ -88,7 +88,23 @@ closed it :
 	- U don't know how to creat it ? [Click here](https://www.instructables.com/Making-Scratch-30-Extensions/) or [here](https://scratch.mit.edu/discuss/48/) or [here again](https://www.foolproofme.org/articles/395-the-dangers-of-randomly-clicking-links)
 
 ## on `./stuf/scratch-vm/src/extension-support/extensio-manager.js`
-
+on :
+```
+const builtinExtensions = {
+	// This is an example that isn't loaded with the other core blocks,
+	// but serves as a reference for loading core blocks as extensions.
+	coreExample: () => require('../blocks/scratch3_core_example'),
+	// These are the non-core built-in extensions.
+	pen: () => require('../extensions/scratch3_pen'),
+```
+add :
+```
+    [name_of_ur_extension]: () => require('../extension/scratch3_[name_of_ur_extension]')
+```
+and close id :
+```
+};
+```
 
 ### le link of the [local servor](http://localhost:8601) :
 
