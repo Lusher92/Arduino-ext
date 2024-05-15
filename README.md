@@ -24,7 +24,7 @@ git clone https://github.com/llk/scratch-vm
 
 ## Commands to compile :
 
-### in scratch-main :
+### in stuff :
 
 ```
 cd scratch-vm
@@ -36,6 +36,42 @@ npm link scratch-vm
 npm start
 ```
 
+## Set up ur extension : <br/>
+
+#### on `./stuff/scratch-gui/src/lib/libraries/extensions/index` <br/>
+add : <br/>
+```
+import [name_of_ur_extension]Image from './[name_of_ur_extension]/[name_of_ur_extension].png';
+import [name_of_ur_extension]InsetIconURL from './[name_of_ur_extension]/[name_of_ur_extension]-small.png';
+```
+and on : <br/>
+```
+export default [
+    {
+        //extensions already in place
+    },
+```
+add ur extension :
+```
+    {
+        name: '[NAME]',
+        extensionId: '[name_of_ur_extension]',
+        collaborator: "[UR_PSEUDO]",
+        iconURL: [name_of_ur_extension]Image,
+        insetIconURL: [name_of_ur_extension]InsetIconURL,
+        description: '[UR_DESCRPTION]',
+        featured: [true or false],                      //mine was true
+        disabled: [true or false],                      //mine was false
+        internetConnectionRequired: [true or false],    //mine was true
+        bluetoothRequired: [true or false],             //mine was false
+        helpLink: '[ur_helplink_if_u_got_one]
+    }
+```
+closed it :
+```
+];
+```
+
 ### le link of the [local servor](http://localhost:8601) :
 
 http://localhost:8601
@@ -45,7 +81,6 @@ http://localhost:8601
 - Open the venv : <br/>
 `source .venv/bin/activate` <br/>
 `s3a` <br/>
-
 
 - If problems of permissions :<br/>
 https://forum.ubuntu-fr.org/viewtopic.php?id=2037251
