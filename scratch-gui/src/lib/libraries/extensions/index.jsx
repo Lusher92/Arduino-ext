@@ -49,6 +49,9 @@ import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 import onegpioArduinoImage from './onegpioArduino/onegpioArduino.png';
 import onegpioArduinoInsetIconURL from './onegpioArduino/onegpioArduino-small.png';
 
+import myBlankExtensionImage from './myBlankExtension/myBlankExtension.png';
+import myBlankExtensionInsetIconURL from './myBlankExtension/myBlankExtension-small.png';
+
 export default [
     {
         name: (
@@ -334,5 +337,19 @@ export default [
         internetConnectionRequired: true,
         bluetoothRequired: false,
         helpLink: 'https://mryslab.github.io/s3-extend/'
+    }
+    ,
+    {
+        name: 'Blanck Extension',
+        extensionId: 'myBlankExtension',
+        collaborator: "Lusher",
+        iconURL: myBlankExtensionImage,
+        insetIconURL: myBlankExtensionInsetIconURL,
+        description: 'myBlankExtension',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://github.com/Lusher92/Arduino-ext/blob/main/README.md'
     }
 ];
