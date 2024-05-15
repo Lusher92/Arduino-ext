@@ -36,9 +36,20 @@ npm link scratch-vm
 npm start
 ```
 
-## Set up ur extension : <br/>
+# Set up ur extension : ([another tuto](https://brightchamps.com/blog/make-scratch-extension-using-javascript/)) <br/>
 
-#### on `./stuff/scratch-gui/src/lib/libraries/extensions/index` <br/>
+## on `./stuff/scratch-gui/src/lib/libraries/extensions`
+
+1. Creat a folder : `[name_of_ur_extension]`
+   
+2. Go inside !
+
+3. Add urs pictures :
+	- [name_of_ur_extension].png
+	- [name_of_ur_extension]-small.png
+
+
+## on `./stuff/scratch-gui/src/lib/libraries/extensions/index.js` <br/>
 add : <br/>
 ```
 import [name_of_ur_extension]Image from './[name_of_ur_extension]/[name_of_ur_extension].png';
@@ -71,6 +82,13 @@ closed it :
 ```
 ];
 ```
+
+## on `./stuf/scratch-vm/src/extension/scratch3_[name_of_ur_extension]/index.js`
+- Add your js file containing the code for your extension
+	- U don't know how to creat it ? [Click here](https://www.instructables.com/Making-Scratch-30-Extensions/) or [here](https://scratch.mit.edu/discuss/48/) or [here again](https://www.foolproofme.org/articles/395-the-dangers-of-randomly-clicking-links)
+
+## on `./stuf/scratch-vm/src/extension-support/extensio-manager.js`
+
 
 ### le link of the [local servor](http://localhost:8601) :
 
