@@ -65,20 +65,20 @@ export default [
 add ur extension :
 ```
     {
-        name: '[NAME]',
-        extensionId: '[name_of_ur_extension]',
-        collaborator: "[UR_PSEUDO]",
-        iconURL: [name_of_ur_extension]Image,
-        insetIconURL: [name_of_ur_extension]InsetIconURL,
-        description: '[UR_DESCRPTION]',
-        featured: [true or false],                      //mine was true
-        disabled: [true or false],                      //mine was false
-        internetConnectionRequired: [true or false],    //mine was true
-        bluetoothRequired: [true or false],             //mine was false
-        helpLink: '[ur_helplink_if_u_got_one]
+	name: '[NAME]',
+	extensionId: '[name_of_ur_extension]',
+	collaborator: "[UR_PSEUDO]",
+	iconURL: [name_of_ur_extension]Image,
+	insetIconURL: [name_of_ur_extension]InsetIconURL,
+	description: '[UR_DESCRPTION]',
+	featured: [true or false],                      //mine was true
+	disabled: [true or false],                      //mine was false
+	internetConnectionRequired: [true or false],    //mine was true
+	bluetoothRequired: [true or false],             //mine was false
+	helpLink: '[ur_helplink_if_u_got_one]
     }
 ```
-closed it :
+and close it :
 ```
 ];
 ```
@@ -101,12 +101,13 @@ add :
 ```
     [name_of_ur_extension]: () => require('../extension/scratch3_[name_of_ur_extension]')
 ```
-and close id :
+and close it :
 ```
 };
 ```
+## Now run it if you haven't already done so
 
-### le link of the [local servor](http://localhost:8601) :
+### Link of the [local servor](http://localhost:8601) :
 
 http://localhost:8601
 
