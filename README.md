@@ -85,7 +85,7 @@ and close it :
 
 ## on `./stuf/scratch-vm/src/extension/scratch3_[name_of_ur_extension]/index.js`
 - Add your js file containing the code for your extension
-	- U don't know how to creat it ? [Click here](https://www.instructables.com/Making-Scratch-30-Extensions/) or [here](https://scratch.mit.edu/discuss/48/) or [here again](https://www.foolproofme.org/articles/395-the-dangers-of-randomly-clicking-links)
+	- U don't know how to creat it ? [Click here](https://www.instructables.com/Making-Scratch-30-Extensions/) or [here](https://scratch.mit.edu/discuss/48/) or [here again](https://medium.com/@hiroyuki.osaki/how-to-develop-your-own-block-for-scratch-3-0-1b5892026421) and why not [here](https://www.foolproofme.org/articles/395-the-dangers-of-randomly-clicking-links) ?
 
 ## on `./stuf/scratch-vm/src/extension-support/extensio-manager.js`
 on :
