@@ -52,6 +52,9 @@ import onegpioArduinoInsetIconURL from './onegpioArduino/onegpioArduino-small.pn
 import myBlankExtensionImage from './myBlankExtension/myBlankExtension.png';
 import myBlankExtensionInsetIconURL from './myBlankExtension/myBlankExtension-small.png';
 
+import sweetHomeExtensionImage from './sweetHomeExtension/sweetHomeExtension.png';
+import sweetHomeExtensionInsetIconURL from './sweetHomeExtension/sweetHomeExtension-small.svg';
+
 export default [
     {
         name: (
@@ -346,6 +349,20 @@ export default [
         iconURL: myBlankExtensionImage,
         insetIconURL: myBlankExtensionInsetIconURL,
         description: 'myBlankExtension',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://github.com/Lusher92/Arduino-ext/blob/main/README.md'
+    }
+    ,
+    {
+        name: 'Sweet Home 3D extension',
+        extensionId: 'sweetHomeExtension',
+        collaborator: "Lusher",
+        iconURL: sweetHomeExtensionImage,
+        insetIconURL: sweetHomeExtensionInsetIconURL,
+        description: 'sweetHomeExtension',
         featured: true,
         disabled: false,
         internetConnectionRequired: true,
