@@ -6,6 +6,7 @@
 
 > [!TIP]
 > ### Useful git comands
+> ```git clone --branch master git@github.com:Lusher92/Arduino-ext.git```
 >```git init``` To initialize the local git <br/>
 >```git add .``` To add all modifys files to index <br/>
 >```git commit -m "[ur_msg]"``` for save it <br/>
