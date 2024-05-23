@@ -1,3 +1,5 @@
+This "read.me" is not mine
+
 ## scratch-vm
 #### Scratch VM is a library for representing, running, and maintaining the state of computer programs written using [Scratch Blocks](https://github.com/scratchfoundation/scratch-blocks).
 
