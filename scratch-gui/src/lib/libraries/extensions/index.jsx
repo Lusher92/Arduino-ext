@@ -49,6 +49,9 @@ import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 import onegpioArduinoImage from './onegpioArduino/onegpioArduino.png';
 import onegpioArduinoInsetIconURL from './onegpioArduino/onegpioArduino-small.png';
 
+import sweetHomeExtensionImage from './sweetHomeExtension/sweetHomeExtension.png';
+import sweetHomeExtensionInsetIconURL from './sweetHomeExtension/sweetHomeExtension-small.svg';
+
 export default [
     {
         name: (
@@ -334,5 +337,18 @@ export default [
         bluetoothRequired: false,
         helpLink: 'https://mryslab.github.io/s3-extend/'
 
+    },
+    {
+        name: 'Sweet Home 3D extension',
+        extensionId: 'sweetHomeExtension',
+        collaborator: "Lusher",
+        iconURL: sweetHomeExtensionImage,
+        insetIconURL: sweetHomeExtensionInsetIconURL,
+        description: 'sweetHomeExtension',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://github.com/Lusher92/Arduino-ext/blob/main/README.md'
     }
 ];
