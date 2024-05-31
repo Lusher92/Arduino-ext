@@ -81,35 +81,28 @@ class SweetHomeExtension {
 
         this.socket = null;
         this.wsUrl = "ws://localhost:8000";
-        SweetHomeExtension.sprite = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAn1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKCgoKCgoAAAAAAAAAAAAAAAAAAAAUFBQUFBQAAAAODg4AAAAAAAAQEBAAAAAcHBwAAAAbGxsbGxsZGRkaGhpAQEAZGRkuLi4uLi5paWkjIyOOjo4oKCh9fX2Hh4cvLy87OzuBgYGKioqampqhoaGxsbHHx8fW1tbd3d3w8PD39/f///++xlGHAAAAKHRSTlMACgwRGhsfIScxMklRUlVWWltrcIiJn7W4xM/Z39/n6enq8/f8/f7+MmotOAAAAAFiS0dENKmx6f0AAACOSURBVBgZBcFHcsJAEADAnmElKIFDyb7w//f5YIMCSutuAACUBoCmSKUHoC/SfLwDfOwzxD2BuCdJHXvgezhI/J4ucMk/BDS1dnWKWFHQNte3YnsMsRC6ryhtl45x2Y6fqfjsc9uTzGs5jilFqAFRRTgpsbZ7E+pShvExB+dbc25DXV7r8yWA9ua5AAAA/8+pMamN7acUAAAAAElFTkSuQmCC";
-        //SweetHomeExtension.sprite = this.runtime.getSpriteTargetByName("Observer");
 
         if (SweetHomeExtension.sprite) {
-            alert("La condition ''if (SweetHomeExtension.sprite)'' est respecté");
 
             SweetHomeExtension.x_Scratch = SweetHomeExtension.sprite.x;
             SweetHomeExtension.y_Scratch = SweetHomeExtension.sprite.y;
             SweetHomeExtension.direction_Scratch = SweetHomeExtension.sprite.direction;
 
-            // this.objectlist = SweetHomeExtension.sprite.lookupVariableById("CNn7j*SP0QT%rN4=j[xz");
-            // this.lamplist = SweetHomeExtension.sprite.lookupVariableById("GoN|030ruZ,{H+4$)C-$");
-            // SweetHomeExtension.height_SH3D = SweetHomeExtension.sprite.lookupVariableById("9YR=}_qqo.V|FmE2ZCj~");
-            // SweetHomeExtension.width_SH3D = SweetHomeExtension.sprite.lookupVariableById("Cg-Li`$:dyXAI+Umru~+");
+            this.objectlist = SweetHomeExtension.sprite.lookupVariableById("CNn7j*SP0QT%rN4=j[xz");
+            this.lamplist = SweetHomeExtension.sprite.lookupVariableById("GoN|030ruZ,{H+4$)C-$");
+            SweetHomeExtension.height_SH3D = SweetHomeExtension.sprite.lookupVariableById("9YR=}_qqo.V|FmE2ZCj~");
+            SweetHomeExtension.width_SH3D = SweetHomeExtension.sprite.lookupVariableById("Cg-Li`$:dyXAI+Umru~+");
 
-            // var clickObjectlist = {};
-            // for (let o of this.objectlist.value) {
-            //     clickObjectlist[o] = false;
-            // }
-            // SweetHomeExtension.clickObjectlist = clickObjectlist;
+            var clickObjectlist = {};
+            for (let o of this.objectlist.value) {
+                clickObjectlist[o] = false;
+            }
+            SweetHomeExtension.clickObjectlist = clickObjectlist;
 
-            // this.statusLightlist = {};
-            // for (let l of this.lamplist.value) {
-            //     this.statusLightlist[l] = "Off";
-            // }
-        }
-        //ajout
-        else{
-            alert("La condition ''if (SweetHomeExtension.sprite)'' n'est pas respecté");
+            this.statusLightlist = {};
+            for (let l of this.lamplist.value) {
+                this.statusLightlist[l] = "Off";
+            }
         }
 
 
