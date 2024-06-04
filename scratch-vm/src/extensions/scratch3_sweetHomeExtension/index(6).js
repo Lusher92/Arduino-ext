@@ -76,11 +76,10 @@ class SweetHomeExtension {
         this.runtime = runtime;
         SweetHomeExtension.sprite = this.runtime.getSpriteTargetByName("Observer");
         SweetHomeExtension.automatic = false;
-        if (SweetHomeExtension.sprite) {
-            alert("sweetHomeExtension.sprite ok !");
-            this.objectlist = SweetHomeExtension.sprite.lookupVariableById("CNn7j*SP0QT%rN4=j[xz");
+        if (SweetHomeExtension.sprite){
+            alert("sweetHomeExtension.sprite ok !")
         } else {
-            alert("SweetHomeExtension.sprite ne marche pas!\nVerifiez que le serveur est ouvert\nPensez à importer le fichier .sb3")
+            alert("SweetHomeExtension.sprite ne marche pas!")
         }
     }
 
@@ -98,94 +97,37 @@ class SweetHomeExtension {
     getBlocks() {
         var typeBlocks = "";
         var result = [{
-            opcode: 'setColor',
-            blockType: BlockType.COMMAND,
-            text: 'color the object : [OBJECT] in [COLORLIST]',
-            arguments: {
-                OBJECT: {
-                    type: ArgumentType.STRING,
-                    defaultValue: 'OBJECT_1',
-                    menu: 'objectMenu' //défini plus tard dans : menu
-                    //defaultValue : '',
-                },
-                COLORLIST: {
-                    type: ArgumentType.STRING,
-                    defaultValue: 'noir',
-                    menu: 'colorMenu'
-                }
-            }
-        }];
-
-        if (SweetHomeExtension.sprite) {
-            typeBlocks = SweetHomeExtension.sprite.lookupVariableById("L^i{fNhE#uQ8.g=D;O~O");
-            if (typeBlocks && typeBlocks.value.startsWith("m")) {
-                result = [];
-                if (this.objectlist.value.length > 0) {
-                    result.push({
-                        opcode: 'setColor',
-                        blockType: BlockType.COMMAND,
-                        text: 'color the object : [OBJECT] in [COLORLIST]',
-                        arguments: {
-                            OBJECT: {
-                                type: ArgumentType.STRING,
-                                defaultValue: 'objectMenu',
-                            },
-                            COLORLIST: {
-                                type: ArgumentType.STRING,
-                                menu: 'colorMenu'
-                            }
-                        }
-                    });
-                }
-            }
-        }
-        if (typeBlocks && typeBlocks.value.startsWith("b")) {
-            result = [];
-            for (let o of this.objectlist.value) {
-                result.push({
                     opcode: 'setColor',
                     blockType: BlockType.COMMAND,
                     text: 'color the object : [OBJECT] in [COLORLIST]',
                     arguments: {
                         OBJECT: {
                             type: ArgumentType.STRING,
-                            defaultValue: o
+                            defaultValue: 'OBJECT_1',
+                            menu: 'objectMenuBis' //défini plus tard dans : menu
+                            //defaultValue : '',
                         },
                         COLORLIST: {
                             type: ArgumentType.STRING,
+                            defaultValue: 'noir',
                             menu: 'colorMenu'
                         }
                     }
-                });
-            }
-        }
-
+                }];
         return result;
     }
 
     getMenus() {
-		var objectMenu = [];
-		var lampMenu = [];
-
         var result = {
-            objectMenuBis: {
-                acceptReporters: true,
-                items: ['OBJECT_1', 'OBJECT_2', 'OBJECT_3']
-            },
-            colorMenu: {
-                items: ["noir", "bleu", "cyan", "gris", "vert",
-                    "magenta", "rouge", "blanc", "jaune"]
-            },
-        };
-
-        		// add menu of objects and lights
-		if (this.objectlist && this.objectlist.value.length > 0) {
-			result[objectMenu] = { items: this.objectlist.value }
-		}
-		if (this.lamplist && this.lamplist.value.length > 0) {
-			result[lampMenu] = { items: this.lamplist.value }
-		}
-
+                objectMenuBis: {
+                    acceptReporters: true,
+                    items: ['OBJECT_1', 'OBJECT_2', 'OBJECT_3']
+                },
+                colorMenu: {
+                    items: ["noir", "bleu", "cyan", "gris", "vert",
+                        "magenta", "rouge", "blanc", "jaune"]
+                },
+            };
         return result;
 
     }
@@ -195,14 +137,15 @@ class SweetHomeExtension {
 
     // command blocks
 
-	setColor({ object, colorList }) {
-		this.connect();
-		this.send("setColor/" + object + "/" + colorList);
-	}
-
-    send(text) {
-		this.socket.send(text);
-	}
+    setColor(args) {
+        if (!connected) {
+            if (!connection_pending) {
+                this.connect();
+                connection_pending = true;
+            }
+        }
+        // window.socket.send("setColor/" + object + "/" + colorList);
+    }
 
     // helpers
     connect() {

@@ -216,7 +216,7 @@ class SweetHomeExtension {
                 };
             }
 
-    setColor(args) {
+    /* setColor(args) {
         if (!connected) {
             if (!connection_pending) {
                 this.connect();
@@ -244,7 +244,7 @@ class SweetHomeExtension {
             msg = JSON.stringify(msg);
             window.socket.send(msg);
         }
-    }
+    } */
 
     /**
 	* connect to the server of communication with a WebSocket.
