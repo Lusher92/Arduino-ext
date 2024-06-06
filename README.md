@@ -44,10 +44,17 @@ git clone https://github.com/llk/scratch-gui
 git clone https://github.com/llk/scratch-vm
 ```
 ### The S3oneGpio project of MrYsLab
-Direct [link](https://github.com/MrYsLab/s3onegpio)
+Here is the [git](https://github.com/MrYsLab/s3onegpio)
+To [set up](https://mryslab.github.io/s3-extend/) the project with the arduino board and the python server
+```
+git clone https://github.com/MrYsLab/s3onegpio
+```
 
 ### The ScratchHome2 project
-Direct [link](https://github.com/kimokipo/ScratchHome2.0)
+Here is the [git](https://github.com/kimokipo/ScratchHome2.0)
+```
+git clone https://github.com/kimokipo/ScratchHome2.0
+```
 
 ## Commands to compile :
 
