@@ -9,6 +9,10 @@
    2. [S3oneGpio](#The-S3oneGpio-project-of-MrYsLab)
    3. [ScratchHome2.0](#The-ScratchHome2-project)
 3. [Set up your extension](#set-up-your-extension-)
+   1. [Add your pictures](#1.-Add-your-pictures)
+   2. [Add path and description](#2.-Add-path-and-description)
+   3. [Add your js file containing the code for your extension](#3.-Add-your-js-file-containing-the-code-for-your-extension)
+   4. [Add the require](#4.-Add-the-require)
 
 > [!CAUTION]
 > To start the ScratchHome extension you must first launch Sweet Home 3D, then follow the steps in this order:
@@ -65,9 +69,11 @@ npm link scratch-vm
 npm start
 ```
 
-# Set up your extension : ([another tuto](https://brightchamps.com/blog/make-scratch-extension-using-javascript/))
+# Set up your extension :
+Your can find ([another tuto](https://brightchamps.com/blog/make-scratch-extension-using-javascript/)) set-up this.
 
-## 1. Add your pictures on `./stuff/scratch-gui/src/lib/libraries/extensions`
+## 1. Add your pictures
+first, go on path : `./stuff/scratch-gui/src/lib/libraries/extensions`
 
 1. Creat a folder : `[name_of_ur_extension]`
    
@@ -78,7 +84,8 @@ npm start
 	- [name_of_ur_extension]-small.png
 
 
-## 2. Add path and description on `./stuff/scratch-gui/src/lib/libraries/extensions/index.js` <br/>
+## 2. Add path and description
+first, go on path : `./stuff/scratch-gui/src/lib/libraries/extensions/index.js` <br/>
 
 ```
 //extensions already in place
@@ -105,15 +112,16 @@ export default [
 ];
 ```
 
-## 3. Add your js file containing the code for your extension in `./stuf/scratch-vm/src/extension/scratch3_[name_of_ur_extension]/index.js`
+## 3. Add your js file containing the code for your extension
+first, go on path : `./stuf/scratch-vm/src/extension/scratch3_[name_of_ur_extension]/index.js`
 
 - You don't know how to creat it ? [Click here](https://www.instructables.com/Making-Scratch-30-Extensions/) or
 [here](https://scratch.mit.edu/discuss/48/) or
 [here again](https://medium.com/@hiroyuki.osaki/how-to-develop-your-own-block-for-scratch-3-0-1b5892026421)
 and why not [here](https://www.foolproofme.org/articles/395-the-dangers-of-randomly-clicking-links) ?
 
-## 4. Add the path in `./stuf/scratch-vm/src/extension-support/extensio-manager.js`
-on :
+## 4. Add the require
+first, go on path : `./stuf/scratch-vm/src/extension-support/extensio-manager.js`
 ```
 const builtinExtensions = {
 	// This is an example that isn't loaded with the other core blocks,
