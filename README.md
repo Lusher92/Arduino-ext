@@ -1,8 +1,13 @@
 > # Compilable Scratch for Windows is in the "windows-master" branch
 
+> [!WARNING]
+> I contributed to this project during my final year internship in computer science.
+>
+> The project compiles well. The part with the extension allowing communication with the Arduino board works correctly. Regarding the part with ScratchHome, I am only working on the setColor block in order to understand how it works. This will allow me to add the other blocks later and save time.
+>
+> Currently, we can load objects, but I have not been able to communicate with the local server of SweetHome.
 
 # TABLES OF CONTENTS
-[Useful git commands](#Useful-git-commands) <span style="color:#FFD700;">Useful git commands</span>
 
 1. [Useful git commands](#Useful-git-commands)
 2. [Repository zone](#Repository-zone)
