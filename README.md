@@ -20,14 +20,7 @@
    3. [Add your js file containing the code for your extension](#Add-your-js-file-containing-the-code-for-your-extension)
    4. [Add the require](#Add-the-require)
 
-> [!CAUTION]
-> To start the ScratchHome extension you must first launch Sweet Home 3D, then follow the steps in this order:
->
-> start Scratch
-> import the sb3 file
-> then select the extension
->
-> If the order is not respected, the extension may not work correctly and you may get an error message.
+
 
 > [!TIP]
 > ### Useful git commands
@@ -74,6 +67,15 @@ npm install
 npm link scratch-vm
 npm start
 ```
+
+> [!WARNING]
+> To start the ScratchHome extension after the compilation you must first launch Sweet Home 3D, then follow the steps in this order:
+>
+> start Scratch<br/>
+> import the sb3 file<br/>
+> then select the extension<br/>
+>
+> If the order is not respected, the extension may not work correctly and you may get an error message.
 
 # Set up your own extension :
 Your can find ([another tuto](https://brightchamps.com/blog/make-scratch-extension-using-javascript/)) set-up this.
