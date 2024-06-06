@@ -3,7 +3,7 @@
 
 # TABLES OF CONTENTS
 
-<a href="#Useful-git-commands" style="color: Red;">Useful git commands</a>
+<a href="#Useful-git-commands" style="color:#FFD700;">Useful git commands</a>
 
 1. [Useful git commands](#Useful-git-commands)
 2. [Repository zone](#Repository-zone)
