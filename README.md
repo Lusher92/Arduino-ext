@@ -1,7 +1,7 @@
 > # Compilable Scratch for linux is in the “master” branch
 > # Compilable Scratch for Windows is in the "windows-master" branch
 
-[test](#commands-for-linux-:)
+[test](#commands-for-linux-)
 
 
 > [!NOTE]
