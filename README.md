@@ -1,21 +1,17 @@
 > # Compilable Scratch for linux is in the “master” branch
 > # Compilable Scratch for Windows is in the "windows-master" branch
 
-[test](#commands-for-linux-)
 
 # TABLES OF CONTENTS
 
 1. [Useful git commands](#Useful-git-commands)
-2. [Repository zone]
-   - [Sratch](#Git-Scratch-)
-   - [S3oneGpio](#The-S3oneGpio-project-of-MrYsLab)
-   - [ScratchHome2.0](#The-ScratchHome2-project)
+2. [Repository zone](#Repository-zone)
+   1. [Sratch](#Git-Scratch-)
+   2. [S3oneGpio](#The-S3oneGpio-project-of-MrYsLab)
+   3. [ScratchHome2.0](#The-ScratchHome2-project)
+3. [Set up your extension](#set-up-your-extension-)
 
-> [!NOTE]
-> ### From the [MrYsLab](https://github.com/MrYsLab/s3onegpio)' project<br/>
-> To [set up](https://mryslab.github.io/s3-extend/) the project with the arduino board and the python server
->
-> ### From the [SratchHome2](https://github.com/kimokipo/ScratchHome2.0)' project<br/>
+> [!CAUTION]
 > To start the ScratchHome extension you must first launch Sweet Home 3D, then follow the steps in this order:
 >
 > start Scratch
@@ -30,9 +26,9 @@
 >```git init``` To initialize the local git <br/>
 >```git add .``` To add all modifys files to index <br/>
 >```git commit -m "[ur_msg]"``` for save it <br/>
->```git branch``` show urs branches <br/>
->```git checkout [_name_of_ur_branches_]``` To chose ur branch <br/>
->```git push```/```git push origin master``` To push ur project
+>```git branch``` show yours branches <br/>
+>```git checkout [_name_of_ur_branches_]``` To chose your branch <br/>
+>```git push```/```git push origin master``` To push your project
 
 ## Repository zone
 ### Git Scratch :
@@ -70,7 +66,7 @@ npm link scratch-vm
 npm start
 ```
 
-# Set up ur extension : ([another tuto](https://brightchamps.com/blog/make-scratch-extension-using-javascript/)) <br/>
+# Set up your extension : ([another tuto](https://brightchamps.com/blog/make-scratch-extension-using-javascript/))
 
 ## 1. Add your pictures on `./stuff/scratch-gui/src/lib/libraries/extensions`
 
@@ -78,7 +74,7 @@ npm start
    
 2. Go inside !
 
-3. Add urs pictures :
+3. Add yours pictures :
 	- [name_of_ur_extension].png
 	- [name_of_ur_extension]-small.png
 
