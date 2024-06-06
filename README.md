@@ -2,7 +2,7 @@
 
 
 # TABLES OF CONTENTS
-[Useful git commands](#Useful-git-commands){: style="color: #FFD700;"}
+[Useful git commands](#Useful-git-commands) <span style="color:#FFD700;">Useful git commands</span>
 
 1. [Useful git commands](#Useful-git-commands)
 2. [Repository zone](#Repository-zone)
