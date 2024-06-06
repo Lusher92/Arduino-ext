@@ -89,7 +89,7 @@ export default [
 
 ## 3. Add your js file containing the code for your extension on `./stuf/scratch-vm/src/extension/scratch3_[name_of_ur_extension]/index.js`
 <br/>
-U don't know how to creat it ? [Click here](https://www.instructables.com/Making-Scratch-30-Extensions/) or [here](https://scratch.mit.edu/discuss/48/) or [here again](https://medium.com/@hiroyuki.osaki/how-to-develop-your-own-block-for-scratch-3-0-1b5892026421) and why not [here](https://www.foolproofme.org/articles/395-the-dangers-of-randomly-clicking-links) ?
+- You don't know how to creat it ? [Click here](https://www.instructables.com/Making-Scratch-30-Extensions/) or [here](https://scratch.mit.edu/discuss/48/) or [here again](https://medium.com/@hiroyuki.osaki/how-to-develop-your-own-block-for-scratch-3-0-1b5892026421) and why not [here](https://www.foolproofme.org/articles/395-the-dangers-of-randomly-clicking-links) ?
 
 ## 4. Add the path on `./stuf/scratch-vm/src/extension-support/extensio-manager.js`
 on :
