@@ -3,12 +3,14 @@
 
 # TABLES OF CONTENTS
 
+<a href="#Useful-git-commands" style="color:black;">Useful git commands</a>
+
 1. [Useful git commands](#Useful-git-commands)
 2. [Repository zone](#Repository-zone)
    1. [Sratch](#Git-Scratch-)
    2. [S3oneGpio](#The-S3oneGpio-project-of-MrYsLab)
    3. [ScratchHome2.0](#The-ScratchHome2-project)
-3. [Set up your extension](#set-up-your-extension-)
+3. [Set up your own extension](#set-up-your-own-extension-)
    1. [Add your pictures](#Add-your-pictures)
    2. [Add path and description](#Add-path-and-description)
    3. [Add your js file containing the code for your extension](#Add-your-js-file-containing-the-code-for-your-extension)
@@ -69,7 +71,7 @@ npm link scratch-vm
 npm start
 ```
 
-# Set up your extension :
+# Set up your own extension :
 Your can find ([another tuto](https://brightchamps.com/blog/make-scratch-extension-using-javascript/)) set-up this.
 
 ## Add your pictures
