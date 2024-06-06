@@ -9,7 +9,7 @@
    2. [S3oneGpio](#The-S3oneGpio-project-of-MrYsLab)
    3. [ScratchHome2.0](#The-ScratchHome2-project)
 3. [Set up your extension](#set-up-your-extension-)
-   1. [Add your pictures](#1.-Add-your-pictures)
+   1. [Add your pictures](#Add-your-pictures)
    2. [Add path and description](#2.-Add-path-and-description)
    3. [Add your js file containing the code for your extension](#3.-Add-your-js-file-containing-the-code-for-your-extension)
    4. [Add the require](#4.-Add-the-require)
