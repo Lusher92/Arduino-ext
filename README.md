@@ -3,6 +3,13 @@
 
 [test](#commands-for-linux-)
 
+# TABLES OF CONTENTS
+
+1. [Useful git commands](#Useful-git-commands)
+2. [Repository zone]
+   - [Sratch](#Git-Scratch-)
+   - [S3oneGpio](#The-S3oneGpio-project-of-MrYsLab)
+   - [ScratchHome2.0](#The-ScratchHome2-project)
 
 > [!NOTE]
 > ### From the [MrYsLab](https://github.com/MrYsLab/s3onegpio)' project<br/>
@@ -18,7 +25,7 @@
 > If the order is not respected, the extension may not work correctly and you may get an error message.
 
 > [!TIP]
-> ### Useful git comands
+> ### Useful git commands
 >```git clone --branch master git@github.com:Lusher92/Arduino-ext.git``` <br/>
 >```git init``` To initialize the local git <br/>
 >```git add .``` To add all modifys files to index <br/>
@@ -27,7 +34,8 @@
 >```git checkout [_name_of_ur_branches_]``` To chose ur branch <br/>
 >```git push```/```git push origin master``` To push ur project
 
-## Git Scratch :
+## Repository zone
+### Git Scratch :
 
 ```
 git clone https://github.com/llk/scratch-gui
@@ -35,6 +43,11 @@ git clone https://github.com/llk/scratch-gui
 ```
 git clone https://github.com/llk/scratch-vm
 ```
+### The S3oneGpio project of MrYsLab
+Direct [link](https://github.com/MrYsLab/s3onegpio)
+
+### The ScratchHome2 project
+Direct [link](https://github.com/kimokipo/ScratchHome2.0)
 
 ## Commands to compile :
 
