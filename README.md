@@ -11,8 +11,8 @@
 
 1. [Useful git commands](#Useful-git-commands)
 2. [Set up the project](#Set_up_the_project)
-   1. [How to compile the project](How_to_compile_the_project)
-   2. [Set-up Sweet Home 3D](Set_up_Sweet_Home_3D)
+   1. [How to compile the project](#How_to_compile_the_project)
+   2. [Set-up Sweet Home 3D](#Set_up_Sweet_Home_3D)
 4. [Repository zone](#Repository-zone)
    1. [Sratch](#Git-Scratch-)
    2. [S3oneGpio](#The-S3oneGpio-project-of-MrYsLab)
