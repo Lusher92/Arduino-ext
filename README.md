@@ -56,7 +56,7 @@ git clone https://github.com/kimokipo/ScratchHome2.0
 
 ## Commands to compile :
 
-### in stuff :
+### in scratch-stuff :
 
 ```
 cd scratch-vm
