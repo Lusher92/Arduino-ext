@@ -11,8 +11,8 @@
 
 1. [Useful git commands](#Useful-git-commands)
 2. [Set up the project](#Set_up_the_project)
-   1. [How to compile the project](How_to_compile_the_project_)
-   2. [Set-up Sweet Home 3D](Set-up_Sweet_Home_3D_)
+   1. [How to compile the project](How_to_compile_the_project)
+   2. [Set-up Sweet Home 3D](Set_up_Sweet_Home_3D)
 4. [Repository zone](#Repository-zone)
    1. [Sratch](#Git-Scratch-)
    2. [S3oneGpio](#The-S3oneGpio-project-of-MrYsLab)
@@ -36,7 +36,7 @@
 >```git push```/```git push origin [_name_of_your_branches_]``` To push your project
 
 ## Set up the project
-### How to compile the project :
+### How to compile the project
 First, you need to install [node.js](https://nodejs.org/en/download/package-manager).
 
 Then you need to open the cmd as an administrator, go to your folder and type the following command :
@@ -50,7 +50,7 @@ npm install
 npm link scratch-vm
 npm start
 ```
-### Set-up Sweet Home 3D :
+### Set up Sweet Home 3D
 
 To prepare Sweet Home 3D, go here, download the [folder](https://github.com/kimokipo/ScratchHome2.0) and go to the documentation file. Test the extension with the scratch provided in its folder. If it works, then you can use my scratch.
 
