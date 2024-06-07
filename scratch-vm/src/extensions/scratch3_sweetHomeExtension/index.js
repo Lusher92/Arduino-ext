@@ -16,15 +16,7 @@ const BlockType = require('../../extension-support/block-type');
 const formatMessage = require('format-message');
 
 
-// The following are constants used within the extension
 
-
-
-// an array to save the current pin mode
-// this is common to all board types since it contains enough
-// entries for all the boards.
-// Modes are listed above - initialize to invalid mode of -1
-let pin_modes = new Array(30).fill(-1);
 
 // has an websocket message already been received
 let alerted = false;
@@ -34,25 +26,11 @@ let connection_pending = false;
 // general outgoing websocket message holder
 let msg = null;
 
-// the pin assigned to the sonar trigger
-// initially set to -1, an illegal value
-let sonar_report_pin = -1;
 
 // flag to indicate if the user connected to a board
 let connected = false;
-
-// arrays to hold input values
-let digital_inputs = new Array(32);
-let analog_inputs = new Array(8);
-
-// flag to indicate if a websocket connect was
-// ever attempted.
 let connect_attempt = false;
 
-// an array to buffer operations until socket is opened
-let wait_open = [];
-
-let the_locale = null;
 
 // common
 
@@ -77,14 +55,15 @@ class SweetHomeExtension {
         SweetHomeExtension.sprite = this.runtime.getSpriteTargetByName("Observer");
         SweetHomeExtension.automatic = false;
         if (SweetHomeExtension.sprite) {
-            alert("sweetHomeExtension.sprite ok !");
+            console.log("sweetHomeExtension.sprite ok !");
             this.objectlist = SweetHomeExtension.sprite.lookupVariableById("CNn7j*SP0QT%rN4=j[xz");
         } else {
-            alert("SweetHomeExtension.sprite ne marche pas!\nVerifiez que le serveur est ouvert\nPensez à importer le fichier .sb3")
+            alert("developpeur : SweetHomeExtension.sprite ne marche pas!\nVerifiez que le serveur est bien ouvert\nPuis importer le fichier .sb3\nEnfin, demarrez l'extension\n/!\\ respecter l'ordre")
         }
     }
 
     getInfo() {
+        this.connect
         return {
             id: 'SweetHomeExtension',
             name: 'Scratch Home',
@@ -164,8 +143,8 @@ class SweetHomeExtension {
     }
 
     getMenus() {
-		var objectMenu = [];
-		var lampMenu = [];
+        var objectMenu = [];
+        var lampMenu = [];
 
         var result = {
             objectMenuBis: {
@@ -178,99 +157,99 @@ class SweetHomeExtension {
             },
         };
 
-        		// add menu of objects and lights
-		if (this.objectlist && this.objectlist.value.length > 0) {
-			result[objectMenu] = { items: this.objectlist.value }
-		}
-		if (this.lamplist && this.lamplist.value.length > 0) {
-			result[lampMenu] = { items: this.lamplist.value }
-		}
+        // add menu of objects and lights
+        if (this.objectlist && this.objectlist.value.length > 0) {
+            result[objectMenu] = { items: this.objectlist.value }
+        }
+        if (this.lamplist && this.lamplist.value.length > 0) {
+            result[lampMenu] = { items: this.lamplist.value }
+        }
 
         return result;
 
     }
 
 
-    // The block handlers
 
-    // command blocks
-
-	setColor({ object, colorList }) {
-		this.connect();
-		this.send("setColor/" + object + "/" + colorList);
-	}
-
-    send(text) {
-		this.socket.send(text);
-	}
-
-    // helpers
-    connect() {
-        if (connected) {
-            // ignore additional connection attempts
-            return;
-        } else {
+    connect() { 
+        /**Si le servuer est fermé le temps pour l'echec de connection est le meme
+         * S'il est le ouvert, le temps d'attente pour l'echec de connection au port    
+         * "ws//localhost:2022" est plus long que les autres*/
+        if (!connected) {
             connect_attempt = true;
-            window.socket = new WebSocket("ws://localhost:8000");
-            msg = JSON.stringify({ "id": "to_arduino_gateway" });
+            // this.socket8000 = new WebSocket("ws://localhost:8000");
+            // this.socket2016 = new WebSocket("ws://localhost:2016");
+            // this.socket2022 = new WebSocket("ws://localhost:2022");
+            // console.log("Tentative de connection [methode connect]");
+            // console.log("socket8000 " + this.socket8000.readyState);
+            // console.log("socket2016 " + this.socket2016.readyState);
+            // console.log("socket2022 " + this.socket2022.readyState);
+
+            this.socket = new WebSocket("ws://localhost:8000");
+            console.log("\n---\nEtat du socket : " + this.socket.readyState +"\n---");
+
+            /* 
+            this.socket.addEventListener("open", (event) => {
+                this.socket.send("HELLO SERVER")
+
+            });
+            */
+
+            // websocket event handlers
+            this.socket.onopen = function (event) {
+                console.log("Connexion ouverte !");
+                connected = true;
+                connect_attempt = true;
+            };
+
+            this.socket.onclose = function () {
+                if (!alerted) {
+                    alert("Connexion fermée");
+                    alerted = true;
+                }
+                connected = false;
+            };
+        }
+    }
+
+
+    isConnected() {
+        if (this.socket.readyState !== 1) {
+            console.log("---\nLe socket n'est pas connecté");
+            console.log("this.socket.readyState : " + this.socket.readyState);
+            console.log("WebSocket.OPEN : " + WebSocket.OPEN + "\n---");
+        }
+    }
+
+    setColor({ OBJECT, COLORLIST }) {
+
+        console.log("tentative de connection [methode setColor]");
+        this.connect();
+        this.send("setColor/" + OBJECT + "/" + COLORLIST);
+    }
+
+
+    send(message) {
+        
+        console.log("##########");
+        if (this.socket.readyState === 0){
+            console.log("[0] La socket a été créée. La connexion n'est pas encore ouverte.");
+        } else if ((this.socket.readyState === 1)){
+            console.log("[1] La connexion est ouverte et prête à communiquer.");
+        } else if ((this.socket.readyState === 2)){
+            console.log("[2] The connection is in the process of closing.");
+        } else if ((this.socket.readyState === 3)){
+            console.log("[3] La connexion est fermée ou n'a pas pu être ouverte.");
         }
 
+        if (this.socket && this.socket.readyState === 1) {
+            this.socket.send(message);
+            alert("envoyé");
+            console.log("Etat du socket apres l'envoie : " + this.socket.readyState);
+        }
+        console.log("##########");
 
-        // websocket event handlers
-        window.socket.onopen = function () {
-
-            digital_inputs.fill(0);
-            analog_inputs.fill(0);
-            pin_modes.fill(-1);
-            // connection complete
-            connected = true;
-            connect_attempt = true;
-            // the message is built above
-            try {
-                //ws.send(msg);
-                window.socket.send(msg);
-
-            } catch (err) {
-                // ignore this exception
-            }
-            for (let index = 0; index < wait_open.length; index++) {
-                let data = wait_open[index];
-                data[0](data[1]);
-            }
-        };
-
-        window.socket.onclose = function () {
-            digital_inputs.fill(0);
-            analog_inputs.fill(0);
-            pin_modes.fill(-1);
-            if (alerted === false) {
-                //alerted = true;
-                alert("Connection fermé");
-            }
-            connected = false;
-        };
-
-        // reporter messages from the board
-        window.socket.onmessage = function (message) {
-            msg = JSON.parse(message.data);
-            let report_type = msg["CNn7j*SP0QT%rN4=j[xz"];
-
-            // types - digital, analog, sonar
-            if (report_type === 'digital_input') {
-                pin = msg['pin'];
-                pin = parseInt(pin, 10);
-                value = msg['value'];
-                digital_inputs[pin] = value;
-            } else if (report_type === 'analog_input') {
-                pin = msg['pin'];
-                pin = parseInt(pin, 10);
-                value = msg['value'];
-                analog_inputs[pin] = value;
-            } else if (report_type === 'sonar_data') {
-                value = msg['value'];
-                digital_inputs[sonar_report_pin] = value;
-            }
-        };
+        this.isConnected()
     }
 }
 
