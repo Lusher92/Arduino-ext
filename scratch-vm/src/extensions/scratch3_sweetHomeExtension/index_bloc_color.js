@@ -78,8 +78,8 @@ class SweetHomeExtension {
         return {
             id: 'SweetHomeExtension',
             name: 'Scratch Home',
-            color1: '#0C5986',
-            color2: '#34B0F7',
+            color1: '#FFA500',
+            color2: '#B87E14',
             blocks: this.getBlocks(),
             menus: this.getMenus()
         }
@@ -103,6 +103,7 @@ class SweetHomeExtension {
                     menu: 'colorMenu'
                 }
             }
+        /*
         },{
             opcode: "switchOnOff",
 			blockType: BlockType.COMMAND,
@@ -117,6 +118,7 @@ class SweetHomeExtension {
 					defaultValue: ""
 				},
 			}
+        */        
         }];
 
         if (SweetHomeExtension.sprite) {
@@ -336,30 +338,6 @@ class SweetHomeExtension {
         this.connect();
         this.send("setColor/" + object + "/" + colorList);
     }
-
-    switchOnOff({ switchList, lamp }) {
-		this.connect();
-		var result = "switchOnOff/";
-		if (switchList.startsWith("C")) {
-			if (this.statusLightlist[lamp].startsWith("On")) {
-				result = result + "Eteindre/";
-				this.statusLightlist[lamp] = "Off";
-			} else {
-				result = result + "Allumer/";
-				this.statusLightlist[lamp] = "On";
-			}
-		} else {
-			result = result + switchList + "/";
-			if (switchList.startsWith("A")) {
-				this.statusLightlist[lamp] = "On";
-			} else {
-				this.statusLightlist[lamp] = "Off";
-			}
-		}
-		result = result + lamp;
-		this.send(result);
-
-	}
 
 
     isObjectClicked({ object }) {
