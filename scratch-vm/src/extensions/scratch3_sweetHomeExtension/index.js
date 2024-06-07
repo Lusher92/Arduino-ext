@@ -17,23 +17,8 @@ const formatMessage = require('format-message');
 
 
 
-
-// has an websocket message already been received
 let alerted = false;
-
-let connection_pending = false;
-
-// general outgoing websocket message holder
-let msg = null;
-
-
-// flag to indicate if the user connected to a board
 let connected = false;
-let connect_attempt = false;
-
-
-// common
-
 
 class SweetHomeExtension {
 
@@ -54,10 +39,12 @@ class SweetHomeExtension {
         this.runtime = runtime;
         SweetHomeExtension.sprite = this.runtime.getSpriteTargetByName("Observer");
         SweetHomeExtension.automatic = false;
+        
         if (SweetHomeExtension.sprite) {
             console.log("sweetHomeExtension.sprite ok !");
             this.objectlist = SweetHomeExtension.sprite.lookupVariableById("CNn7j*SP0QT%rN4=j[xz");
         } else {
+            //if we can't reade the Json generate from the JavaProject
             alert("developpeur : SweetHomeExtension.sprite ne marche pas!\nVerifiez que le serveur est bien ouvert\nPuis importer le fichier .sb3\nEnfin, demarrez l'extension\n/!\\ respecter l'ordre")
         }
     }
@@ -84,8 +71,7 @@ class SweetHomeExtension {
                 OBJECT: {
                     type: ArgumentType.STRING,
                     defaultValue: 'OBJECT_1',
-                    menu: 'objectMenu' //défini plus tard dans : menu
-                    //defaultValue : '',
+                    menu: 'objectMenu'
                 },
                 COLORLIST: {
                     type: ArgumentType.STRING,
@@ -171,31 +157,13 @@ class SweetHomeExtension {
 
 
 
-    connect() { 
-        /**Si le servuer est fermé le temps pour l'echec de connection est le meme
-         * S'il est le ouvert, le temps d'attente pour l'echec de connection au port    
-         * "ws//localhost:2022" est plus long que les autres*/
+    connect() {
         if (!connected) {
             connect_attempt = true;
-            // this.socket8000 = new WebSocket("ws://localhost:8000");
-            // this.socket2016 = new WebSocket("ws://localhost:2016");
-            // this.socket2022 = new WebSocket("ws://localhost:2022");
-            // console.log("Tentative de connection [methode connect]");
-            // console.log("socket8000 " + this.socket8000.readyState);
-            // console.log("socket2016 " + this.socket2016.readyState);
-            // console.log("socket2022 " + this.socket2022.readyState);
 
             this.socket = new WebSocket("ws://localhost:8000");
-            console.log("\n---\nEtat du socket : " + this.socket.readyState +"\n---");
+            console.log("\n---\nEtat du socket : " + this.socket.readyState + "\n---");
 
-            /* 
-            this.socket.addEventListener("open", (event) => {
-                this.socket.send("HELLO SERVER")
-
-            });
-            */
-
-            // websocket event handlers
             this.socket.onopen = function (event) {
                 console.log("Connexion ouverte !");
                 connected = true;
@@ -205,6 +173,7 @@ class SweetHomeExtension {
             this.socket.onclose = function () {
                 if (!alerted) {
                     alert("Connexion fermée");
+                    console.log("##########");
                     alerted = true;
                 }
                 connected = false;
@@ -218,36 +187,36 @@ class SweetHomeExtension {
             console.log("---\nLe socket n'est pas connecté");
             console.log("this.socket.readyState : " + this.socket.readyState);
             console.log("WebSocket.OPEN : " + WebSocket.OPEN + "\n---");
+            alert("S'il y a un problème de communication, essayez d'abord une deuxieme fois. Il peux y avoir un instant avant d'être correctement connecté.\n\nSinon essayez de :\n1.Fermer SweetHome pour fermer correctement le serveur\n2.Relancer SweetHome\n3.Ouvrir votre fichier\n4.Générer un nouveau fichier sb3")
         }
     }
 
     setColor({ OBJECT, COLORLIST }) {
-
-        console.log("tentative de connection [methode setColor]");
         this.connect();
         this.send("setColor/" + OBJECT + "/" + COLORLIST);
     }
 
 
     send(message) {
-        
-        console.log("##########");
-        if (this.socket.readyState === 0){
-            console.log("[0] La socket a été créée. La connexion n'est pas encore ouverte.");
-        } else if ((this.socket.readyState === 1)){
-            console.log("[1] La connexion est ouverte et prête à communiquer.");
-        } else if ((this.socket.readyState === 2)){
-            console.log("[2] The connection is in the process of closing.");
-        } else if ((this.socket.readyState === 3)){
-            console.log("[3] La connexion est fermée ou n'a pas pu être ouverte.");
+
+        if (!connected) {
+            console.log("##########");
+            if (this.socket.readyState === 0) {
+                console.log("[0] La socket a été créée. La connexion n'est pas encore ouverte.");
+            } else if ((this.socket.readyState === 1)) {
+                console.log("[1] La connexion est ouverte et prête à communiquer.");
+            } else if ((this.socket.readyState === 2)) {
+                console.log("[2] The connection is in the process of closing.");
+            } else if ((this.socket.readyState === 3)) {
+                console.log("[3] La connexion est fermée ou n'a pas pu être ouverte.");
+            }
+            connected = true;
         }
 
         if (this.socket && this.socket.readyState === 1) {
             this.socket.send(message);
-            alert("envoyé");
-            console.log("Etat du socket apres l'envoie : " + this.socket.readyState);
+            console.log("Requête de changement de couleur envoyé")
         }
-        console.log("##########");
 
         this.isConnected()
     }
