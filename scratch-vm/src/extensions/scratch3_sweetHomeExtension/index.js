@@ -78,8 +78,8 @@ class SweetHomeExtension {
         return {
             id: 'SweetHomeExtension',
             name: 'Scratch Home',
-            color1: '#0C5986',
-            color2: '#34B0F7',
+            color1: '#FFA500',
+            color2: '#B87E14',
             blocks: this.getBlocks(),
             menus: this.getMenus()
         }
@@ -151,6 +151,23 @@ class SweetHomeExtension {
                         }
                     });
                 }
+                if (this.lamplist.value.length > 0) {
+					result.push({
+                        opcode: "switchOnOff",
+                        blockType: BlockType.COMMAND,
+                        text: "[switchList] the [lamp]",
+                        arguments: {
+                            switchList: {
+                                type: ArgumentType.STRING,
+                                menu: "switchMenu"
+                            },
+                            lamp: {
+                                type: ArgumentType.STRING,
+								menu: "lampMenu"
+							}
+						}
+					});
+				}
             }
         }
         if (typeBlocks && typeBlocks.value.startsWith("b")) {
@@ -172,6 +189,23 @@ class SweetHomeExtension {
                     }
                 });
             }
+            for (let l of this.lamplist.value) {
+				result.push({
+                    opcode: "switchOnOff",
+                    blockType: BlockType.COMMAND,
+                    text: "[switchList] the [lamp]",
+                    arguments: {
+                        switchList: {
+                            type: ArgumentType.STRING,
+                            menu: "switchMenu"
+                        },
+                        lamp: {
+                            type: ArgumentType.STRING,
+							defaultValue: l
+						}
+					}
+				});
+			}
         }
         if (this.objectlist && this.objectlist.value.length > 0) {
             for (let o of this.objectlist.value) {
