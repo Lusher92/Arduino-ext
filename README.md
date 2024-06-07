@@ -10,11 +10,14 @@
 # TABLES OF CONTENTS
 
 1. [Useful git commands](#Useful-git-commands)
-2. [Repository zone](#Repository-zone)
+2. [Set up the project](#Set_up_the_project)
+   1. [How to compile the project](How_to_compile_the_project_)
+   2. [Set-up Sweet Home 3D](Set-up_Sweet_Home_3D_)
+4. [Repository zone](#Repository-zone)
    1. [Sratch](#Git-Scratch-)
    2. [S3oneGpio](#The-S3oneGpio-project-of-MrYsLab)
    3. [ScratchHome2.0](#The-ScratchHome2-project)
-3. [Set up your own extension](#set-up-your-own-extension-)
+5. [Set up your own extension](#set-up-your-own-extension-)
    1. [Add your pictures](#Add-your-pictures)
    2. [Add path and description](#Add-path-and-description)
    3. [Add your js file containing the code for your extension](#Add-your-js-file-containing-the-code-for-your-extension)
@@ -24,13 +27,41 @@
 
 > [!TIP]
 > ### Useful git commands
->```git clone --branch master git@github.com:Lusher92/Arduino-ext.git``` <br/>
+>```git clone --branch [_name_of_your_branches_] [_your_git_adress_]``` <br/>
 >```git init``` To initialize the local git <br/>
 >```git add .``` To add all modifys files to index <br/>
 >```git commit -m "[ur_msg]"``` for save it <br/>
 >```git branch``` show yours branches <br/>
->```git checkout [_name_of_ur_branches_]``` To chose your branch <br/>
->```git push```/```git push origin [_name_of_ur_branches_]``` To push your project
+>```git checkout [_name_of_your_branches_]``` To chose your branch <br/>
+>```git push```/```git push origin [_name_of_your_branches_]``` To push your project
+
+## Set up the project
+### How to compile the project :
+First, you need to install [node.js](https://nodejs.org/en/download/package-manager).
+
+Then you need to open the cmd as an administrator, go to your folder and type the following command :
+
+```
+cd scratch-vm
+npm install
+npm link
+cd ../scratch-gui
+npm install
+npm link scratch-vm
+npm start
+```
+### Set-up Sweet Home 3D :
+
+To prepare Sweet Home 3D, go here, download the [folder](https://github.com/kimokipo/ScratchHome2.0) and go to the documentation file. Test the extension with the scratch provided in its folder. If it works, then you can use my scratch.
+
+> [!WARNING]
+> To start the ScratchHome extension after the compilation you must first launch Sweet Home 3D, then follow the steps in this order:
+>
+> start Scratch<br/>
+> import the sb3 file<br/>
+> then select the extension<br/>
+>
+> If the order is not respected, the extension may not work correctly and you may get an error message.
 
 ## Repository zone
 ### Git Scratch :
@@ -54,28 +85,6 @@ Here is the [git](https://github.com/kimokipo/ScratchHome2.0)
 git clone https://github.com/kimokipo/ScratchHome2.0
 ```
 
-## Commands to compile :
-
-### in scratch-stuff :
-
-```
-cd scratch-vm
-npm install
-npm link
-cd ../scratch-gui
-npm install
-npm link scratch-vm
-npm start
-```
-
-> [!WARNING]
-> To start the ScratchHome extension after the compilation you must first launch Sweet Home 3D, then follow the steps in this order:
->
-> start Scratch<br/>
-> import the sb3 file<br/>
-> then select the extension<br/>
->
-> If the order is not respected, the extension may not work correctly and you may get an error message.
 
 # Set up your own extension :
 Your can find ([another tuto](https://brightchamps.com/blog/make-scratch-extension-using-javascript/)) to set-up this.
