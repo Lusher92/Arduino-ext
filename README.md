@@ -30,7 +30,7 @@
 >```git commit -m "[ur_msg]"``` for save it <br/>
 >```git branch``` show yours branches <br/>
 >```git checkout [_name_of_ur_branches_]``` To chose your branch <br/>
->```git push```/```git push origin master``` To push your project
+>```git push```/```git push origin [_name_of_ur_branches_]``` To push your project
 
 ## Repository zone
 ### Git Scratch :
@@ -78,7 +78,7 @@ npm start
 > If the order is not respected, the extension may not work correctly and you may get an error message.
 
 # Set up your own extension :
-Your can find ([another tuto](https://brightchamps.com/blog/make-scratch-extension-using-javascript/)) set-up this.
+Your can find ([another tuto](https://brightchamps.com/blog/make-scratch-extension-using-javascript/)) to set-up this.
 
 ## Add your pictures
 first, go on path : `./stuff/scratch-gui/src/lib/libraries/extensions`
